@@ -11,6 +11,7 @@ class CLI {
   constructor() {
     this.projectName = '';
     this.framework = '';
+    this.useTypeScript = false;
     this.projectPath = '';
   }
 
@@ -46,7 +47,16 @@ class CLI {
       const frameworkChoice = await question('请选择 (1/2): ');
       this.framework = frameworkChoice === '1' ? 'vue' : 'react';
       
+      console.log('');
+      console.log('📝 是否使用 TypeScript?');
+      console.log('1. 是');
+      console.log('2. 否');
+      
+      const tsChoice = await question('请选择 (1/2): ');
+      this.useTypeScript = tsChoice === '1';
+      
       console.log(`✅ 创建 ${this.framework.toUpperCase()} 项目: ${this.projectName}`);
+      console.log(`📝 TypeScript: ${this.useTypeScript ? '是' : '否'}`);
       
     } finally {
       rl.close();
@@ -62,18 +72,18 @@ class CLI {
     }
 
     // 创建目录结构
-    createDirectories(this.projectPath);
+    createDirectories(this.projectPath, this.useTypeScript);
     
     // 生成配置文件
-    const configGen = new ConfigGenerator(this.projectPath, this.projectName, this.framework);
+    const configGen = new ConfigGenerator(this.projectPath, this.projectName, this.framework, this.useTypeScript);
     configGen.generateAll();
     
     // 生成框架相关文件
     if (this.framework === 'vue') {
-      const vueGen = new VueGenerator(this.projectPath, this.projectName);
+      const vueGen = new VueGenerator(this.projectPath, this.projectName, this.useTypeScript);
       vueGen.generateAll();
     } else {
-      const reactGen = new ReactGenerator(this.projectPath, this.projectName);
+      const reactGen = new ReactGenerator(this.projectPath, this.projectName, this.useTypeScript);
       reactGen.generateAll();
     }
   }
@@ -97,6 +107,7 @@ class CLI {
     console.log('');
     console.log('📂 项目目录:', this.projectName);
     console.log('🛠  框架:', this.framework.toUpperCase());
+    console.log('📝 TypeScript:', this.useTypeScript ? '是' : '否');
     console.log('🎨 样式:', 'Tailwind CSS');
     console.log('');
     console.log('🚀 开始开发:');
@@ -106,6 +117,13 @@ class CLI {
     console.log('📦 构建生产版本:');
     console.log('   npm run build');
     console.log('');
+    
+    if (this.useTypeScript) {
+      console.log('💡 TypeScript 提示:');
+      console.log('   - 类型检查: npm run type-check');
+      console.log('   - 配置文件: tsconfig.json');
+      console.log('');
+    }
   }
 }
 

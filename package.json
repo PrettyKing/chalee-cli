@@ -1,14 +1,15 @@
 {
   "name": "chalee-cli",
   "version": "1.0.0",
-  "description": "A CLI tool for creating Webpack projects with Vue/React and TailwindCSS",
+  "description": "🚀 A CLI tool for creating Webpack projects with Vue/React and TailwindCSS. Fast, modern, and easy to use.",
   "main": "index.js",
   "bin": {
     "chalee-cli": "./index.js",
     "chalee": "./index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "echo \"准备发布到 npm...\""
   },
   "keywords": [
     "webpack",
@@ -17,19 +18,39 @@
     "react",
     "tailwindcss",
     "scaffold",
-    "boilerplate"
+    "boilerplate",
+    "frontend",
+    "javascript",
+    "typescript",
+    "build-tool",
+    "starter-kit",
+    "project-generator"
   ],
-  "author": "PrettyKing",
+  "author": {
+    "name": "PrettyKing",
+    "url": "https://github.com/PrettyKing"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/PrettyKing/chalee-cli.git"
+    "url": "git+https://github.com/PrettyKing/chalee-cli.git"
   },
   "bugs": {
     "url": "https://github.com/PrettyKing/chalee-cli/issues"
   },
   "homepage": "https://github.com/PrettyKing/chalee-cli#readme",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "files": [
+    "index.js",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "preferGlobal": true,
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-function createDirectories(projectPath) {
+function createDirectories(projectPath, useTypeScript = false) {
   const dirs = [
     'src',
     'src/components',
@@ -9,6 +9,11 @@ function createDirectories(projectPath) {
     'public',
     'dist'
   ];
+
+  // 如果使用 TypeScript，添加类型目录
+  if (useTypeScript) {
+    dirs.push('src/types');
+  }
 
   dirs.forEach(dir => {
     const dirPath = path.join(projectPath, dir);

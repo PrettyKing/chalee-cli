@@ -1,10 +1,11 @@
 # Chalee CLI
 
-🚀 一个快速创建基于 Webpack 的前端项目脚手架工具，支持 Vue 3 和 React 18，预配置 TailwindCSS。
+🚀 一个快速创建基于 Webpack 的前端项目脚手架工具，支持 Vue 3 和 React 18，预配置 TailwindCSS，现已支持 TypeScript！
 
 ## ✨ 特性
 
 - 🎯 **多框架支持** - 支持 Vue 3 和 React 18
+- 📝 **TypeScript 支持** - 可选的 TypeScript 配置
 - 🎨 **预配置 TailwindCSS** - 开箱即用的实用优先 CSS 框架
 - ⚡ **Webpack 5** - 现代化的模块打包工具
 - 🔥 **热重载** - 开发时自动刷新
@@ -27,7 +28,10 @@ chalee-cli
 chalee
 ```
 
-按照提示输入项目名称并选择框架即可！
+按照提示：
+1. 输入项目名称
+2. 选择框架（Vue 或 React）
+3. 选择是否使用 TypeScript
 
 ### 本地使用
 
@@ -41,6 +45,7 @@ node index.js
 
 ## 📂 生成的项目结构
 
+### JavaScript 项目
 ```
 project-name/
 ├── public/
@@ -60,6 +65,29 @@ project-name/
 └── postcss.config.js       # PostCSS 配置
 ```
 
+### TypeScript 项目
+```
+project-name/
+├── public/
+│   └── index.html          # HTML 模板
+├── src/
+│   ├── components/         # 组件目录
+│   │   ├── Header.vue/tsx  # 头部组件
+│   │   └── Welcome.vue/tsx # 欢迎页组件
+│   ├── styles/
+│   │   └── main.css        # 主样式文件
+│   ├── types/
+│   │   └── index.d.ts      # 类型声明文件
+│   ├── App.vue/tsx         # 根组件
+│   └── index.ts/tsx        # 入口文件
+├── dist/                   # 构建输出目录
+├── package.json
+├── webpack.config.js       # Webpack 配置
+├── tailwind.config.js      # Tailwind 配置
+├── postcss.config.js       # PostCSS 配置
+└── tsconfig.json           # TypeScript 配置
+```
+
 ## 📜 可用脚本
 
 创建项目后，在项目目录中可以运行：
@@ -72,6 +100,9 @@ project-name/
 
 ### `npm run build:dev`
 构建开发版本（未压缩）
+
+### `npm run type-check` (仅 TypeScript 项目)
+运行 TypeScript 类型检查
 
 ## 🎨 TailwindCSS 使用
 
@@ -88,6 +119,24 @@ project-name/
   Hello Tailwind!
 </div>
 ```
+
+## 📝 TypeScript 支持
+
+### Vue + TypeScript
+- 使用 Vue 3 Composition API 和 `<script setup lang="ts">`
+- 完整的类型推导和检查
+- Vue 组件类型声明
+
+### React + TypeScript
+- 使用 React 18 和 TypeScript 接口
+- 完整的 Props 类型定义
+- 事件处理类型安全
+
+### TypeScript 配置
+- 预配置的 `tsconfig.json`
+- 路径别名支持 (`@/` 指向 `src/`)
+- 严格模式启用
+- 完整的类型声明文件
 
 ## ⚙️ 自定义配置
 
@@ -109,11 +158,28 @@ module.exports = {
 }
 ```
 
+### 修改 TypeScript 配置
+
+编辑 `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
+```
+
 ### 修改 Webpack 配置
 
 编辑 `webpack.config.js` 来添加更多功能，如：
 
-- TypeScript 支持
+- 额外的 TypeScript 配置
 - 图片资源处理
 - 字体加载
 - 环境变量
@@ -122,6 +188,20 @@ module.exports = {
 
 - Node.js >= 14.0.0
 - npm >= 6.0.0
+
+## 🆕 更新日志
+
+### v1.1.0
+- ✨ 新增 TypeScript 支持
+- 🎨 改进 Vue 和 React 代码生成
+- 📝 完善类型声明和配置
+- 🔧 优化 Webpack 配置
+
+### v1.0.0
+- 🎉 初始版本发布
+- 🚀 支持 Vue 3 和 React 18
+- 🎨 集成 TailwindCSS
+- ⚡ Webpack 5 构建系统
 
 ## 🐛 故障排除
 
@@ -139,6 +219,9 @@ module.exports = {
 3. **样式不生效**
    确保 Tailwind CSS 类名在 `tailwind.config.js` 的 `content` 配置中匹配
 
+4. **TypeScript 编译错误**
+   检查 `tsconfig.json` 配置和类型声明文件
+
 ## 🤝 贡献
 
 欢迎提交 Issue 和 Pull Request！
@@ -151,6 +234,7 @@ MIT License
 
 - [Vue.js](https://vuejs.org/)
 - [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Webpack](https://webpack.js.org/)
 

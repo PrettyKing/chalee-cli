@@ -1,7 +1,7 @@
 {
   "name": "chalee-cli",
-  "version": "1.0.0",
-  "description": "🚀 A CLI tool for creating Webpack projects with Vue/React and TailwindCSS. Fast, modern, and easy to use.",
+  "version": "1.1.0",
+  "description": "🚀 A CLI tool for creating Webpack projects with Vue/React and TailwindCSS. Now supports TypeScript! Fast, modern, and easy to use.",
   "main": "index.js",
   "bin": {
     "chalee-cli": "./index.js",
@@ -17,14 +17,16 @@
     "vue",
     "react",
     "tailwindcss",
+    "typescript",
     "scaffold",
     "boilerplate",
     "frontend",
     "javascript",
-    "typescript",
     "build-tool",
     "starter-kit",
-    "project-generator"
+    "project-generator",
+    "ts",
+    "tsx"
   ],
   "author": {
     "name": "PrettyKing",

@@ -1,0 +1,35 @@
+{
+  "name": "chalee-cli",
+  "version": "1.0.0",
+  "description": "A CLI tool for creating Webpack projects with Vue/React and TailwindCSS",
+  "main": "index.js",
+  "bin": {
+    "chalee-cli": "./index.js",
+    "chalee": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack",
+    "cli",
+    "vue",
+    "react",
+    "tailwindcss",
+    "scaffold",
+    "boilerplate"
+  ],
+  "author": "PrettyKing",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PrettyKing/chalee-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PrettyKing/chalee-cli/issues"
+  },
+  "homepage": "https://github.com/PrettyKing/chalee-cli#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
